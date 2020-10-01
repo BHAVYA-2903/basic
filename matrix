@@ -1,0 +1,83 @@
+#include<iostream>
+using namespace std;
+
+int arr[1000][1000] = {0};
+
+void buildMat(int n){
+    for(int i=0;i<n;i++){
+        int a, b, c;
+        cin>>a>>b>>c;
+        arr[a][b] = c;
+    }
+}
+
+int main()
+{
+	int p,q,n,i,j,num,k,m,r,c;
+	cin>>p>>q>>n;
+
+    buildMat(n);
+	cin>>i>>j;
+
+    // spiral
+    int down=1,up=2,left=2,right=1;
+    int val[] = {1,2,3,4};
+	if(arr[i][j]!=0)
+	{
+
+		cout<<i<<" "<<j<<" "<<arr[i][j]<<" "<<val[0]<<endl;
+	}
+	k=i;
+	m=j;
+	while((k<p&&m<q)&&(k>=0&&m>=0))
+		{
+				for(int i=1;i<=down;i++)
+				{
+                    if(k>=0&&m>=0){
+					k=k+1;
+					if(arr[k][m]!=0)
+					{
+						cout<<k<<" "<<m<<" "<<arr[k][m]<<" "<<val[0]<<endl;
+					}
+                    }
+				}
+				down=down+2;
+
+				for(int i=1;i<=right;i++)
+				{
+                    if(k>=0&&m>=0){
+					m=m+1;
+					if(arr[k][m]!=0)
+					{
+						cout<<k<<" "<<m<<" "<<arr[k][m]<<" "<<val[1]<<endl;
+					}
+                    }
+				}
+				right=right+2;
+
+				for(int i=1;i<=up;i++)
+				{
+                    if(k>=0&&m>=0){
+					k=k-1;
+					if(arr[k][m]!=0)
+					{
+						cout<<k<<" "<<m<<" "<<arr[k][m]<<" "<<val[2]<<endl;
+					}
+                    }
+				}
+				up=up+2;
+
+				for(int i=1;i<=left;i++)
+				{
+                    if(k>=0&&m>=0){
+					m=m-1;
+					if(arr[k][m]!=0)
+					{
+						cout<<k<<" "<<m<<" "<<arr[k][m]<<" "<<val[3]<<endl;
+					}
+                    }
+				}
+				left=left+2;
+
+	}	
+}
